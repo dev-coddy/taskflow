@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
+import { seedDatabase } from '../utils/seedData.js';
 
 // Generate JWT token
 const generateToken = (id) => {
@@ -145,3 +146,20 @@ export const updateProfile = async (req, res, next) => {
     next(error);
   }
 };
+
+// @desc    Reset & seed initial demo data
+// @route   POST /api/auth/seed
+// @access  Public
+export const resetAndSeedDatabase = async (req, res, next) => {
+  try {
+    const seedResult = await seedDatabase();
+    res.status(200).json({
+      success: true,
+      message: 'Database reset & default users/tasks seeded successfully',
+      data: seedResult
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+

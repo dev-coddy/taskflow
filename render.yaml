@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: taskflow-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        value: taskflow_jwt_secret_key_production_ready_2026
+      - key: JWT_EXPIRE
+        value: 7d

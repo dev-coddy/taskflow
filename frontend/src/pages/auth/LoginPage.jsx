@@ -3,12 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { ThemeToggle } from '../../components/common/ThemeToggle';
 import { Button } from '../../components/common/Button';
-import { FiLayers, FiLock, FiMail, FiArrowRight } from 'react-icons/fi';
+import { seedDemoData } from '../../services/authService';
+import toast from 'react-hot-toast';
+import { FiLayers, FiLock, FiMail, FiArrowRight, FiRefreshCw, FiUserCheck } from 'react-icons/fi';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [seeding, setSeeding] = useState(false);
   const { loginUser, user } = useAuth();
   const navigate = useNavigate();
 
@@ -37,6 +40,30 @@ export const LoginPage = () => {
       // Error toast handled in AuthContext
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleFillManager = () => {
+    setEmail('manager@taskflow.com');
+    setPassword('Password123!');
+  };
+
+  const handleFillEmployee = () => {
+    setEmail('alex@taskflow.com');
+    setPassword('Password123!');
+  };
+
+  const handleResetData = async () => {
+    setSeeding(true);
+    try {
+      await seedDemoData();
+      toast.success('Database restored! Default Manager & Employee accounts created.');
+      setEmail('manager@taskflow.com');
+      setPassword('Password123!');
+    } catch (err) {
+      toast.error('Failed to reset demo database: ' + (err.response?.data?.message || err.message));
+    } finally {
+      setSeeding(false);
     }
   };
 
@@ -117,8 +144,47 @@ export const LoginPage = () => {
               Sign In
             </Button>
           </form>
+
+          {/* Quick Demo Credentials Presets */}
+          <div className="mt-6 pt-5 border-t border-slate-800 space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+              Quick Preset Credentials
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={handleFillManager}
+                className="px-3 py-2 text-xs font-medium rounded-md border border-blue-500/30 bg-blue-500/10 text-blue-300 hover:bg-blue-500/20 transition-colors flex items-center justify-center gap-1.5"
+              >
+                <FiUserCheck className="w-3.5 h-3.5" />
+                Fill Manager
+              </button>
+              <button
+                type="button"
+                onClick={handleFillEmployee}
+                className="px-3 py-2 text-xs font-medium rounded-md border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
+              >
+                <FiUserCheck className="w-3.5 h-3.5" />
+                Fill Employee
+              </button>
+            </div>
+
+            {/* Restore/Re-seed Demo Data */}
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={handleResetData}
+                disabled={seeding}
+                className="w-full px-3 py-2 text-xs font-medium rounded-md border border-amber-500/30 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 transition-colors flex items-center justify-center gap-1.5 disabled:opacity-50"
+              >
+                <FiRefreshCw className={`w-3.5 h-3.5 ${seeding ? 'animate-spin' : ''}`} />
+                {seeding ? 'Restoring Accounts...' : 'Restore Default Accounts & Seed Data'}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
+

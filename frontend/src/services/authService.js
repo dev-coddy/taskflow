@@ -19,3 +19,8 @@ export const updateProfile = async (profileData) => {
   const response = await API.put('/auth/profile', profileData);
   return response.data;
 };
+
+export const seedDemoData = async () => {
+  const response = await API.post('/auth/seed');
+  return response.data;
+};
