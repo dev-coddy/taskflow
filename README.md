@@ -58,7 +58,17 @@ Building TaskFlow provided hands-on experience in full-stack architecture, state
 ## 🚀 Live Demo & Getting Started
 
 ### 🌐 Live Application
-Experience the live project on Vercel: **[https://taskflow-cyan-eight.vercel.app/](https://taskflow-cyan-eight.vercel.app/)**
+- **Live Application**: **[https://taskflow-cyan-eight.vercel.app/](https://taskflow-cyan-eight.vercel.app/)**
+- **Direct Login**: **[https://taskflow-cyan-eight.vercel.app/login](https://taskflow-cyan-eight.vercel.app/login)**
+
+#### 🔑 Test Demo Credentials:
+| Role | Email Address | Password |
+| :--- | :--- | :--- |
+| **👔 Manager** | `manager@taskflow.com` | `Password123!` |
+| **👤 Employee 1** | `alex@taskflow.com` | `Password123!` |
+| **👤 Employee 2** | `sarah@taskflow.com` | `Password123!` |
+
+---
 
 ### Prerequisites
 - Node.js (v18 or higher)

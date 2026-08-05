@@ -117,45 +117,6 @@ export const LoginPage = () => {
               Sign In
             </Button>
           </form>
-
-          {/* Demo Credentials Quick-Fill */}
-          <div className="mt-6 pt-4 border-t border-slate-800">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-medium text-slate-400">Demo Accounts (Click to Quick-Fill)</span>
-              <span className="text-[10px] text-blue-400 font-mono bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/40">Pass: Password123!</span>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setEmail('manager@taskflow.com');
-                  setPassword('Password123!');
-                }}
-                className="p-2 text-left rounded-lg bg-slate-950 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900/80 transition-all cursor-pointer group"
-              >
-                <div className="text-xs font-semibold text-slate-200 group-hover:text-blue-400 flex items-center justify-between">
-                  <span>👔 Manager</span>
-                  <span className="text-[10px] text-slate-500 font-mono group-hover:text-blue-400">Fill →</span>
-                </div>
-                <div className="text-[11px] text-slate-400 truncate mt-0.5">manager@taskflow.com</div>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setEmail('alex@taskflow.com');
-                  setPassword('Password123!');
-                }}
-                className="p-2 text-left rounded-lg bg-slate-950 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900/80 transition-all cursor-pointer group"
-              >
-                <div className="text-xs font-semibold text-slate-200 group-hover:text-blue-400 flex items-center justify-between">
-                  <span>👤 Employee</span>
-                  <span className="text-[10px] text-slate-500 font-mono group-hover:text-blue-400">Fill →</span>
-                </div>
-                <div className="text-[11px] text-slate-400 truncate mt-0.5">alex@taskflow.com</div>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
