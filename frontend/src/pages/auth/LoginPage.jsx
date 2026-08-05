@@ -49,8 +49,8 @@ export const LoginPage = () => {
   };
 
   const handleFillEmployee = () => {
-    setEmail('alex@taskflow.com');
-    setPassword('Password123!');
+    setEmail('talent@taskflow.com');
+    setPassword('Talen7@2004');
   };
 
   const handleResetData = async () => {

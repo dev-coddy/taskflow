@@ -65,8 +65,7 @@ Building TaskFlow provided hands-on experience in full-stack architecture, state
 | Role | Email Address | Password |
 | :--- | :--- | :--- |
 | **👔 Manager** | `manager@taskflow.com` | `Password123!` |
-| **👤 Employee 1** | `alex@taskflow.com` | `Password123!` |
-| **👤 Employee 2** | `sarah@taskflow.com` | `Password123!` |
+| **👤 Employee** | `talent@taskflow.com` | `Talen7@2004` |
 
 ---
 
@@ -98,8 +97,7 @@ Building TaskFlow provided hands-on experience in full-stack architecture, state
 
 4. **Default Credentials**:
    - **Manager**: `manager@taskflow.com` | Password: `Password123!`
-   - **Employee 1**: `alex@taskflow.com` | Password: `Password123!`
-   - **Employee 2**: `sarah@taskflow.com` | Password: `Password123!`
+   - **Employee**: `talent@taskflow.com` | Password: `Talen7@2004`
 
 ---
 

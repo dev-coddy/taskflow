@@ -18,7 +18,7 @@ export const seedDatabase = async () => {
     await Task.deleteMany({});
     await DailyUpdate.deleteMany({});
 
-    console.log('👤 Seeding default Users...');
+    console.log('👤 Seeding default Manager & Employee Users...');
     const manager = await User.create({
       name: 'Elena Rostova',
       email: 'manager@taskflow.com',
@@ -28,34 +28,16 @@ export const seedDatabase = async () => {
       profileImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=250&q=80'
     });
 
-    const alex = await User.create({
-      name: 'Alex Turner',
-      email: 'alex@taskflow.com',
-      password: 'Password123!',
+    const talent = await User.create({
+      name: 'Talent',
+      email: 'talent@taskflow.com',
+      password: 'Talen7@2004',
       role: 'Employee',
-      department: 'Frontend Development',
+      department: 'Software Engineering',
       profileImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80'
     });
 
-    const sarah = await User.create({
-      name: 'Sarah Connor',
-      email: 'sarah@taskflow.com',
-      password: 'Password123!',
-      role: 'Employee',
-      department: 'QA & Testing',
-      profileImage: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=250&q=80'
-    });
-
-    const david = await User.create({
-      name: 'David Miller',
-      email: 'david@taskflow.com',
-      password: 'Password123!',
-      role: 'Employee',
-      department: 'Backend Services',
-      profileImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80'
-    });
-
-    console.log('📋 Seeding sample Tasks...');
+    console.log('📋 Seeding sample Tasks for Talent...');
     const today = new Date();
     const inThreeDays = new Date();
     inThreeDays.setDate(today.getDate() + 3);
@@ -66,7 +48,7 @@ export const seedDatabase = async () => {
       priority: 'High',
       status: 'In Progress',
       assignedBy: manager._id,
-      assignedTo: sarah._id,
+      assignedTo: talent._id,
       dueDate: inThreeDays
     });
 
@@ -76,7 +58,7 @@ export const seedDatabase = async () => {
       priority: 'Critical',
       status: 'Completed',
       assignedBy: manager._id,
-      assignedTo: alex._id,
+      assignedTo: talent._id,
       dueDate: today
     });
 
@@ -86,24 +68,14 @@ export const seedDatabase = async () => {
       priority: 'Medium',
       status: 'In Progress',
       assignedBy: manager._id,
-      assignedTo: david._id,
+      assignedTo: talent._id,
       dueDate: inThreeDays
-    });
-
-    const task4 = await Task.create({
-      title: 'Stripe Payment Webhook Endpoint Fix',
-      description: 'Investigate edge cases when receiving duplicate webhook payloads',
-      priority: 'Critical',
-      status: 'Blocked',
-      assignedBy: manager._id,
-      assignedTo: david._id,
-      dueDate: today
     });
 
     console.log('📝 Seeding Daily Status Updates...');
     await DailyUpdate.create({
       taskId: task1._id,
-      employeeId: sarah._id,
+      employeeId: talent._id,
       date: today,
       status: 'In Progress',
       remarks: 'Completed 12 test scenarios for payment processing. 3 test suites pending execution.',
@@ -112,29 +84,18 @@ export const seedDatabase = async () => {
 
     await DailyUpdate.create({
       taskId: task2._id,
-      employeeId: alex._id,
+      employeeId: talent._id,
       date: today,
       status: 'Completed',
       remarks: 'Finalized glassmorphic dark mode styles, verified color contrast accessibility, and published builds.',
       hoursWorked: 7.0
     });
 
-    await DailyUpdate.create({
-      taskId: task4._id,
-      employeeId: david._id,
-      date: today,
-      status: 'Blocked',
-      remarks: 'Waiting for Sandbox API credentials update from third-party vendor.',
-      hoursWorked: 3.5
-    });
-
     console.log('✨ Seed complete! Default credentials:');
     console.log('   Manager: manager@taskflow.com | Password: Password123!');
-    console.log('   Employee 1: alex@taskflow.com | Password: Password123!');
-    console.log('   Employee 2: sarah@taskflow.com | Password: Password123!');
-    console.log('   Employee 3: david@taskflow.com | Password: Password123!');
+    console.log('   Employee: talent@taskflow.com | Password: Talen7@2004');
 
-    return { manager, alex, sarah, david };
+    return { manager, talent };
   } catch (error) {
     console.error('❌ Seed error:', error);
   }
