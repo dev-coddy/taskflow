@@ -1,5 +1,9 @@
 # ⚡ TaskFlow - Task & Daily Status Management System
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://taskflow-cyan-eight.vercel.app/)
+
+**🌐 Live Application:** [https://taskflow-cyan-eight.vercel.app/](https://taskflow-cyan-eight.vercel.app/)
+
 TaskFlow is a modern, full-stack web application designed to streamline team task management, enforce strict deadline tracking, monitor daily progress updates, and generate copy-paste ready End-of-Day (EOD) status emails automatically.
 
 ---
@@ -52,6 +56,9 @@ Building TaskFlow provided hands-on experience in full-stack architecture, state
 ---
 
 ## 🚀 Live Demo & Getting Started
+
+### 🌐 Live Application
+Experience the live project on Vercel: **[https://taskflow-cyan-eight.vercel.app/](https://taskflow-cyan-eight.vercel.app/)**
 
 ### Prerequisites
 - Node.js (v18 or higher)
